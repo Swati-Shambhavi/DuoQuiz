@@ -1,0 +1,22 @@
+.formControl {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+
+  select {
+    color: var(--color-primary);
+    background-color: skyblue;
+    font-weight: 700;
+    width: 2.5rem;
+    height: 1.5rem;
+    font-size: 0.8rem;
+    outline: none;
+    border: none;
+  }
+}
+.btn {
+  display: flex;
+  justify-content: center;
+}
+// }

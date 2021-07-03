@@ -1,0 +1,72 @@
+.questionContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+
+  .questionBlock {
+    height: 10vh;
+    //   background-color: slateblue;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+
+    .operand {
+      font-weight: 700;
+      font-size: 2.6rem;
+    }
+    .operator {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+    input {
+      width: 3rem;
+      height: 3rem;
+      background-color: skyblue;
+      border: none;
+      font-size: 2rem;
+      outline: none;
+      color: var(--color-primary);
+      padding: 2px 6px;
+    }
+  }
+  .scoreBlock {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    flex-direction: column;
+    width: 35vw;
+
+    button {
+      width: 10rem;
+      background-color: skyblue;
+      outline: none;
+      border: none;
+      padding: 0.5rem 0;
+      height: 2.5rem;
+      margin-bottom: 2rem;
+      font-size: 1.4rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      &:hover {
+        transform: scale(1.05);
+        // font-size: 1.45rem;
+      }
+    }
+    .score {
+      display: flex;
+      font-size: 2.5rem;
+      justify-content: space-between;
+      align-items: center;
+
+      justify-self: flex-end;
+      & > :not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+  }
+}

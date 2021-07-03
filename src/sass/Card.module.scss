@@ -1,0 +1,20 @@
+.card {
+  width: 35%;
+  height: 60vh;
+  background-color: var(--color-primary-blur);
+  border: 1.5px solid skyblue;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 750px) {
+    width: 65%;
+    height: auto;
+  }
+  &:not(:last-child) {
+    margin-right: 4rem;
+    @media (max-width: 750px) {
+      margin-right: 0;
+      margin-bottom: 3rem;
+    }
+  }
+}

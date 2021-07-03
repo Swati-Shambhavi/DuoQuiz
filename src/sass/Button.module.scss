@@ -1,0 +1,14 @@
+.button {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  width: 70%;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  margin: 2rem;
+  align-self: center;
+  cursor: pointer;
+  border: none;
+}

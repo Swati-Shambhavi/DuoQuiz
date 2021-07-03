@@ -1,0 +1,22 @@
+.container {
+  margin: 0 auto;
+  height: 100vh;
+  color: skyblue;
+
+  h1 {
+    padding: 3rem 0;
+    text-align: center;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 750px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
