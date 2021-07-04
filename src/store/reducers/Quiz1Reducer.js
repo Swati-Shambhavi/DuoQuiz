@@ -29,6 +29,8 @@ const Quiz1Reducer = (
       };
     case 'GET_QUESTION_ARRAY':
       return state.questionsAsked;
+    case 'RESET':
+      return { prereq: {}, questionsAsked: [], totalScore: 0 };
     default:
       return state;
   }

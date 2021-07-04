@@ -6,14 +6,15 @@
 }
 body {
   --color-primary: rgb(4, 6, 32);
-  --color-primary-blur: rgba(4, 6, 32, 0.4);
+  --color-primary-blur: rgba(4, 6, 32, 0.9);
   --color-secondary: skyblue;
+  /* background: gray; */
   font-family: 'Nunito', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url('./images/background.jpg');
   background-size: cover;
-  /* background-repeat: no-repeat; */
+  background-repeat: no-repeat;
 }
 
 code {

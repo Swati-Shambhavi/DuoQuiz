@@ -3,6 +3,8 @@ import Card from './UI/Card';
 import H3 from './UI/H3';
 import { useSelector } from 'react-redux';
 import Question from './Question';
+import ScoreChart from './ScoreChart';
+
 const generateRandomNumber = (min = 1, max) => {
   return Math.floor(Math.random() * (max - min) + min);
 };
@@ -55,7 +57,9 @@ const QuizQuestions = () => {
           qNo={questionNumber}
         />
       )}
-      {quiz1Complete && <p>Your Final Score= {totalScore}</p>}
+      {quiz1Complete && (
+        <ScoreChart questionsAsked={questionsAsked} totalScore={totalScore} />
+      )}
     </Card>
   );
 };

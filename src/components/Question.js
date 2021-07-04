@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 let askedQuestion2 = {
   operand1: 0,
   operand2: 0,
+  operator: '+',
   correctAnswer: 0,
   enteredAnswer: 0,
 };
@@ -28,7 +29,7 @@ const Question = ({
   useEffect(() => {
     const timeout = setTimeout(() => {
       setOff();
-    }, 5000);
+    }, 3000);
 
     return () => {
       clearTimeout(timeout);
@@ -39,8 +40,9 @@ const Question = ({
         askedQuestion2 = {
           operand1: num1,
           operand2: num2,
+          operator: operator,
           correctAnswer: correctAnswer,
-          enteredAnswer: '',
+          enteredAnswer: 'none',
           isCorrect: false,
         };
         dispatch({
@@ -60,6 +62,7 @@ const Question = ({
     askedQuestion2 = {
       operand1: num1,
       operand2: num2,
+      operator: operator,
       correctAnswer: correctAnswer,
       enteredAnswer: enteredAnswer,
       isCorrect: answerIsCorrect,
@@ -78,7 +81,7 @@ const Question = ({
         <span className={style.operand}>{num2}</span>
         <span className={style.operator}>=</span>
         <span>
-          <input type="text" ref={answerRef} />
+          <input type="text" ref={answerRef} placeholder="?" />
         </span>
       </div>
       <div className={style.scoreBlock}>

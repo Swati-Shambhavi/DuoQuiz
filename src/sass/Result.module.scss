@@ -1,0 +1,32 @@
+.resultContainer {
+  padding: 0 1rem;
+}
+.questionPart {
+  display: flex;
+  background-color: skyblue;
+  color: var(--color-primary);
+  justify-content: space-evenly;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+
+  font-weight: 700;
+  & > * {
+    align-items: center;
+  }
+  .answer {
+    width: 3rem;
+    &:not(:last-child) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .correct {
+    background-color: green;
+    color: white;
+  }
+  .wrong {
+    color: red;
+    text-decoration: underline;
+    font-weight: 800;
+  }
+}
