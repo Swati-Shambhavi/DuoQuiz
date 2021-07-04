@@ -11,6 +11,10 @@ const QuizQuestions = () => {
   const { numberOfQuestions, operator, maxNumber } = useSelector(
     (state) => state.Quiz1Reducer.prereq
   );
+  const [quiz1Complete, setQuiz1Complete] = useState(false);
+  const { questionsAsked, totalScore } = useSelector(
+    (state) => state.Quiz1Reducer
+  );
   const [timer, setTimer] = useState(false);
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
@@ -29,11 +33,13 @@ const QuizQuestions = () => {
       console.log(questionNumber);
     } else {
       setTimer(false);
+      setQuiz1Complete(true);
     }
   };
   const setOffTimer = () => {
     setTimer(false);
   };
+
   return (
     <Card>
       <H3>Quiz 1</H3>
@@ -45,8 +51,11 @@ const QuizQuestions = () => {
           num2={num2}
           setOn={setOnTimer}
           setOff={setOffTimer}
+          yourScore={totalScore}
+          qNo={questionNumber}
         />
       )}
+      {quiz1Complete && <p>Your Final Score= {totalScore}</p>}
     </Card>
   );
 };
