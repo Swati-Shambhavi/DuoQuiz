@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import style from '../sass/Question.module.scss';
 import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
@@ -9,6 +9,7 @@ let askedQuestion2 = {
   operator: '+',
   correctAnswer: 0,
   enteredAnswer: 0,
+
 };
 
 const Question = ({
@@ -20,22 +21,26 @@ const Question = ({
   operator,
   yourScore,
   qNo,
+    
 }) => {
   const answerRef = useRef();
   const num1Str = num1 + '';
   const num2Str = num2 + '';
-  let hasClickedNext = false;
+  let hasDispatched = false;
   const dispatch = useDispatch();
+  let timeout = '';
+  const [timer,setTimer]=useState('')
   useEffect(() => {
-    const timeout = setTimeout(() => {
+    setTimer(setTimeout(() => {
       setOff();
-    }, 3000);
+    
+    }, 3000))
 
     return () => {
-      clearTimeout(timeout);
+      clearTimeout(timer);
       onTimeOut();
       setOn();
-      if (!hasClickedNext) {
+      if (!hasDispatched) {
         const correctAnswer = eval(`${num1Str} ${operator} ${num2Str}`);
         askedQuestion2 = {
           operand1: num1,
@@ -50,11 +55,11 @@ const Question = ({
           payload: askedQuestion2,
         });
       }
+     
     };
-  }, []);
+  }, [setTimer]);
 
   const setQuestionHandler = () => {
-    hasClickedNext = true;
     const enteredAnswer = answerRef.current.value;
     const correctAnswer = eval(`${num1Str} ${operator} ${num2Str}`);
     const answerIsCorrect =
@@ -67,10 +72,17 @@ const Question = ({
       enteredAnswer: enteredAnswer,
       isCorrect: answerIsCorrect,
     };
-    dispatch({
-      type: 'SET_QUESTION_ARRAY',
-      payload: askedQuestion2,
-    });
+    if (!hasDispatched) {
+      dispatch({
+        type: 'SET_QUESTION_ARRAY',
+        payload: askedQuestion2,
+      });
+    }
+    hasDispatched = true;
+    clearTimeout(timer);
+    onTimeOut();
+    setOn();
+    
   };
   return (
     <div className={style.questionContainer}>

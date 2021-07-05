@@ -20,8 +20,10 @@ const QuizQuestions = () => {
   const [timer, setTimer] = useState(false);
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
+
   useEffect(() => {
     setTimer(true);
+
     generateTwoNumbers();
   }, []);
   const generateTwoNumbers = () => {

@@ -2,13 +2,23 @@ import React, { useState } from 'react';
 import Quiz from './components/Quiz';
 import style from './sass/App.module.scss';
 import QuizQuestions from './components/QuizQuestions';
+import { useDispatch } from 'react-redux';
 function App() {
   const [startQuiz1, setStartQuiz1] = useState(false);
   const [startQuiz2, setStartQuiz2] = useState(false);
-  const startQuiz1Handler = () => {
+  const dispatch = useDispatch();
+  const startQuiz1Handler = (prerequisite_payload) => {
+    dispatch({
+      type: 'SET_PREREQUISITES',
+      payload: prerequisite_payload.prerequisites,
+    });
     setStartQuiz1(true);
   };
-  const startQuiz2Handler = () => {
+  const startQuiz2Handler = (prerequisite_payload) => {
+    dispatch({
+      type: 'SET_PREREQUISITES2',
+      payload: prerequisite_payload.prerequisites,
+    });
     setStartQuiz2(true);
   };
   return (
