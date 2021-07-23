@@ -15,15 +15,6 @@ const Quiz = ({ name, onStart }) => {
   const maxNumRef = useRef();
 
   const clickHandler = () => {
-    // console.log(numOfQuestRef.current.value);
-    // dispatch({
-    //   type: 'SET_PREREQUISITES',
-    //   payload: {
-    //     numberOfQuestions: numOfQuestRef.current.value,
-    //     operator: operatorRef.current.value,
-    //     maxNumber: maxNumRef.current.value,
-    //   },
-    // });
     onStart({
       prerequisites: {
         numberOfQuestions: numOfQuestRef.current.value,
